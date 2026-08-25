@@ -1,0 +1,17 @@
+appId: com.saucelabs.mydemo.app.ios
+name: Add product to cart
+tags:
+  - smoke
+  - cart
+---
+- launchApp
+- tapOn:
+    id: "ProductItem"
+    index: 0
+- assertVisible:
+    id: "ProductDetails-screen"
+- tapOn: 
+    id: "AddToCart"
+- tapOn:
+    id: "Cart-tab-item"
+- assertVisible: "Proceed To checkout"

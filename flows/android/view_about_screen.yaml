@@ -1,0 +1,14 @@
+appId: com.saucelabs.mydemoapp.android
+name: Navigate to About screen from menu
+tags:
+  - regression
+  - menu
+---
+- tapOn:
+    id: "menuIV"
+- assertVisible:
+    id: "menuRV"
+- tapOn: "About"
+- assertVisible:
+    id: "aboutTV"
+- assertVisible: "About"

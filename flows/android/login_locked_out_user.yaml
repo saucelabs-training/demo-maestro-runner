@@ -1,0 +1,22 @@
+appId: com.saucelabs.mydemoapp.android
+name: Login - locked out user is rejected
+tags:
+  - regression
+  - login
+  - negative
+---
+- tapOn:
+    id: "menuIV"
+- assertVisible:
+    id: "menuRV"
+- tapOn: "Log In"
+- tapOn:
+    id: "nameET"
+- inputText: "alice@example.com"
+- tapOn:
+    id: "passwordET"
+- inputText: "10203040"
+- hideKeyboard
+- tapOn:
+    id: "loginBtn"
+- assertVisible: "Sorry this user has been locked out."

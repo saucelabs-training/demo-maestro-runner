@@ -1,0 +1,24 @@
+appId: com.saucelabs.mydemoapp.android
+name: Login - standard user
+tags:
+  - smoke
+  - login
+---
+- assertVisible:
+    id: "productRV"
+- tapOn:
+    id: "menuIV"
+- assertVisible:
+    id: "menuRV"
+- tapOn: "Log In"
+- tapOn:
+    id: "nameET"
+- inputText: "bod@example.com"
+- tapOn:
+    id: "passwordET"
+- inputText: "10203040"
+- hideKeyboard
+- tapOn:
+    id: "loginBtn"
+- assertVisible:
+    id: "menuIV"

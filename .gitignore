@@ -1,0 +1,6 @@
+# maestro-runner run output
+reports/
+
+# OS/editor cruft
+.DS_Store
+.claude/settings.local.json

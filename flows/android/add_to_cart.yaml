@@ -1,0 +1,17 @@
+appId: com.saucelabs.mydemoapp.android
+name: Add product to cart
+tags:
+  - smoke
+  - cart
+---
+- assertVisible: "Products"
+- tapOn: 
+    id: "com.saucelabs.mydemoapp.android:id/productIV"
+- scroll:
+    direction: DOWN
+- assertVisible: "Add to Cart"
+- tapOn:
+    id: "cartBt"
+- tapOn:
+    id: "cartRL"
+- assertVisible: "Proceed To checkout"

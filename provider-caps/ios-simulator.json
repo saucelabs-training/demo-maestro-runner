@@ -1,0 +1,17 @@
+{
+  "platformName": "iOS",
+  "appium:automationName": "XCUITest",
+  "appium:deviceName": "iPhone Simulator",
+  "appium:platformVersion": "18.0",
+  "appium:app": "storage:filename=SauceLabs-Demo-App.Simulator.zip",
+  "appium:iosInstallPause": 5000,
+  "appium:appLaunchStateTimeoutSec": 120,
+  "appium:settings": {
+    "waitForIdleTimeout": 3000,
+    "animationCoolOffTimeout": 2
+  },
+  "sauce:options": {
+    "build": "Maestro iOS Simulator Run",
+    "appiumVersion": "2.11.3"
+  }
+}

@@ -1,0 +1,13 @@
+appId: com.saucelabs.mydemo.app.ios
+name: Navigate to About screen from menu
+tags:
+  - regression
+  - menu
+---
+- launchApp
+- tapOn:
+    id: "More-tab-item"
+- tapOn:
+    id: "About-menu-item"
+- assertVisible:
+    id: "About-screen"

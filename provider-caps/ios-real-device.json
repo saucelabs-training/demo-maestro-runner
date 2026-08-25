@@ -1,0 +1,12 @@
+{
+  "platformName": "iOS",
+  "appium:automationName": "XCUITest",
+  "appium:deviceName": "iPhone.*",
+  "appium:platformVersion": "^(18|26).*",
+  "appium:app": "storage:filename=SauceLabs-Demo-App.ipa",
+  "sauce:options": {
+    "build": "Maestro iOS Run",
+    "appiumVersion": "latest",
+    "resigningEnabled": true
+  }
+}

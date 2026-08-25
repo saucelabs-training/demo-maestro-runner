@@ -1,0 +1,17 @@
+appId: com.saucelabs.mydemo.app.ios
+name: Login - empty username shows validation error
+tags:
+  - regression
+  - login
+  - negative
+---
+- launchApp
+- assertVisible:
+    id: "Catalog"
+- tapOn:
+    id: "More-tab-item"
+- tapOn: 
+    id: "Login Button"
+- tapOn: 
+    id: "Login"
+- assertVisible: "Username is required"

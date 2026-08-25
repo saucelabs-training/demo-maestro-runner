@@ -1,0 +1,19 @@
+appId: com.saucelabs.mydemo.app.ios
+name: Login - standard user
+tags:
+  - smoke
+  - login
+---
+- launchApp
+- assertVisible:
+    id: "Catalog"
+- tapOn:
+    id: "More-tab-item"
+- tapOn: 
+    id: "Login Button"
+- tapOn: "bob@example.com"
+- tapOn: "10203040"
+- tapOn: 
+    id: "Login"
+- assertVisible:
+    id: "Catalog-screen"

@@ -1,0 +1,15 @@
+{
+  "platformName": "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:deviceName": "Android GoogleAPI Emulator",
+  "appium:platformVersion": "15.0",
+  "appium:app": "storage:filename=SauceLabs-Demo-App.apk",
+  "appium:appPackage": "com.saucelabs.mydemoapp.android",
+  "appium:appActivity": ".view.activities.SplashActivity",
+  "appium:appWaitActivity": "*",
+  "sauce:options": {
+    "build": "Maestro Android Arm Emulator Run",
+    "appiumVersion": "2.11.0",
+    "armRequired": true
+  }
+}

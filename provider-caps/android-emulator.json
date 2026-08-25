@@ -1,0 +1,14 @@
+{
+  "platformName": "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:deviceName": "Google Pixel 9 Emulator",
+  "appium:platformVersion": "16.0",
+  "appium:app": "storage:filename=SauceLabs-Demo-App.apk",
+  "appium:appPackage": "com.saucelabs.mydemoapp.android",
+  "appium:appActivity": ".view.activities.SplashActivity",
+  "appium:appWaitActivity": "*",
+  "sauce:options": {
+    "build": "Maestro Android Emulator Run",
+    "appiumVersion": "2.11.0"
+  }
+}

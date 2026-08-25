@@ -1,0 +1,11 @@
+{
+  "platformName": "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:deviceName": "Samsung.*",
+  "appium:platformVersion": "^1[6-7].*",
+  "appium:app": "storage:filename=SauceLabs-Demo-App.apk",
+  "sauce:options": {
+    "build": "Maestro Android Run",
+    "appiumVersion": "latest"
+  }
+}
