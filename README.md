@@ -128,7 +128,7 @@ the run down to `login`-tagged flows first, then fans whatever matches out acros
 matching flows, so if fewer than 10 flows carry the `login` tag, fewer than 10 sessions get
 created.
 
-### 4. Run the full iOS simulator suite on a single reused simulator (`--parallel 1`)
+### 4. Run the full iOS simulator suite on a single reused simulator
 
 ```bash
 maestro-runner \
@@ -147,7 +147,7 @@ test still starts from the same clean app state even though the underlying devic
 shared. This is a good way to run a full suite cheaply when you don't need per-test device
 isolation.
 
-### Android ARM emulators (beta)
+### 5. Android ARM emulators (beta)
 
 `provider-caps/android-arm-emulator.json` targets Sauce Labs' newer **Android ARM emulators**
 (`armRequired: true`), which run on ARM-based host hardware instead of the standard x86 emulator
