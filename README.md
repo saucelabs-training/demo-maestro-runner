@@ -38,8 +38,9 @@ Four steps to run your first flow (iOS, EU data center):
      test flows/ios/login_standard_user.yaml
    ```
 
-That's it - the sections below cover Android, other data centers, running a full suite,
-tag filtering, and everything else in more detail.
+That's it - the sections below cover running on Android and iOS, real devices, emulators,
+simulators, other data centers, running a full suite, tag filtering, and everything else in
+more detail.
 
 ## Folder structure
 
