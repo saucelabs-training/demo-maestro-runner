@@ -5,16 +5,41 @@ Android/iOS **real devices**, **emulators**, and **simulators** using
 [maestro-runner](https://github.com/devicelab-dev/maestro-runner). Background on how this
 works: [`docs/cloud-providers/saucelabs.md`](https://github.com/devicelab-dev/maestro-runner/blob/main/docs/cloud-providers/saucelabs.md).
 
-Android and iOS use **two separate native demo apps** (not a shared cross-platform build), so
-their flows use different `appId`s and different selectors:
-- Android: [saucelabs/my-demo-app-android](https://github.com/saucelabs/my-demo-app-android) —
-  `appId: com.saucelabs.mydemoapp.android`
-- iOS: [saucelabs/my-demo-app-ios](https://github.com/saucelabs/my-demo-app-ios) —
-  `appId: com.saucelabs.mydemo.app.ios`
+## Quickstart
 
-Both apps let you browse the catalog and add items to the cart **without logging in** — login is
-only required at checkout. Only the Android app has a "locked out user" flow; the iOS app has no
-lockout logic, so its negative-path example instead checks the empty-field validation error.
+Four steps to run your first flow (iOS, EU data center):
+
+1. Install `maestro-runner` — via npm:
+   ```bash
+   npm install --save-dev maestro-runner   # or use `npx maestro-runner ...` with no install step
+   ```
+   or via shell (macOS/Linux; on Windows use WSL):
+   ```bash
+   curl -fsSL https://open.devicelab.dev/install/maestro-runner | bash
+   ```
+2. Export your Sauce Labs credentials:
+   ```bash
+   export SAUCE_USERNAME="your-sauce-username"
+   export SAUCE_ACCESS_KEY="your-sauce-access-key"
+   ```
+3. Upload the iOS app build to [Sauce Storage](https://docs.saucelabs.com/mobile-apps/app-storage/):
+   ```bash
+   curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+     -X POST "https://api.eu-central-1.saucelabs.com/v1/storage/upload" \
+     -F "payload=@apps/SauceLabs-Demo-App.ipa" \
+     -F "name=SauceLabs-Demo-App.ipa"
+   ```
+4. Run the flow:
+   ```bash
+   maestro-runner \
+     --driver appium \
+     --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
+     --caps provider-caps/ios-real-device.json \
+     test flows/ios/login_standard_user.yaml
+   ```
+
+That's it — the sections below cover Android, other data centers, running a full suite,
+tag filtering, and everything else in more detail.
 
 ## Folder structure
 
@@ -38,6 +63,7 @@ flows/
 provider-caps/
   android-real-device.json
   android-emulator.json
+  android-arm-emulator.json
   ios-real-device.json
   ios-simulator.json
 ```
@@ -53,12 +79,16 @@ duplicated per test.
 
 ## Prerequisites
 
-1. Export your Sauce Labs credentials:
+1. Install [`maestro-runner`](https://github.com/devicelab-dev/maestro-runner) — via npm
+   (`npm install --save-dev maestro-runner`, or `npx maestro-runner ...` with no install step) or
+   via shell (`curl -fsSL https://open.devicelab.dev/install/maestro-runner | bash`; on Windows use
+   WSL).
+2. Export your Sauce Labs credentials:
    ```bash
    export SAUCE_USERNAME="your-sauce-username"
    export SAUCE_ACCESS_KEY="your-sauce-access-key"
    ```
-2. Upload each build in `apps/` to [Sauce Storage](https://docs.saucelabs.com/mobile-apps/app-storage/)
+3. Upload each build in `apps/` to [Sauce Storage](https://docs.saucelabs.com/mobile-apps/app-storage/)
    under the exact filename its caps file expects (`appium:app: storage:filename=...`):
    - `apps/SauceLabs-Demo-App.apk` → used by `provider-caps/android-real-device.json`,
      `provider-caps/android-emulator.json`, and `provider-caps/android-arm-emulator.json` — from
@@ -78,7 +108,7 @@ duplicated per test.
      -F "payload=@apps/SauceLabs-Demo-App.ipa" \
      -F "name=SauceLabs-Demo-App.ipa"
    ```
-3. Pick your region's Appium endpoint. Examples below use the **EU data center**
+4. Pick your region's Appium endpoint. Examples below use the **EU data center**
    (`eu-central-1`) — swap in `us-west-1`, `us-east-4`, etc. if you need a different region.
 
 ## Run commands
