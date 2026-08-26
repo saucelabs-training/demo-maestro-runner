@@ -187,7 +187,7 @@ farm. This device type is currently in **beta** - if you need access, contact
 ```bash
 maestro-runner \
   --driver appium \
-  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com:443/wd/hub" \
+  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
   --caps provider-caps/android-arm-emulator.json \
   test flows/android/
 ```
