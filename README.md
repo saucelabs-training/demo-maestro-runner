@@ -92,7 +92,7 @@ full-suite run collapsed onto one reused device.
 ```bash
 maestro-runner \
   --driver appium \
-  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com:443/wd/hub" \
+  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
   --caps provider-caps/android-real-device.json \
   test flows/android/login_standard_user.yaml
 ```
@@ -103,7 +103,7 @@ maestro-runner \
 maestro-runner \
   --driver appium \
   --parallel 4 \
-  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com:443/wd/hub" \
+  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
   --caps provider-caps/ios-real-device.json \
   test flows/ios/
 ```
@@ -117,7 +117,7 @@ across them.
 maestro-runner \
   --driver appium \
   --parallel 10 \
-  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com:443/wd/hub" \
+  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
   --caps provider-caps/android-real-device.json \
   test --include-tags login flows/android/
 ```
@@ -134,7 +134,7 @@ created.
 maestro-runner \
   --driver appium \
   --parallel 1 \
-  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com:443/wd/hub" \
+  --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
   --caps provider-caps/ios-simulator.json \
   test flows/ios/
 ```
