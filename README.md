@@ -178,16 +178,17 @@ test still starts from the same clean app state even though the underlying devic
 shared. This is a good way to run a full suite cheaply when you don't need per-test device
 isolation.
 
-### 5. Android ARM emulators (beta)
+### 5. Android ARM emulators
 
-`provider-caps/android-arm-emulator.json` targets Sauce Labs' newer **Android ARM emulators**
-(`armRequired: true`), which run on ARM-based host hardware instead of the standard x86 emulator
-farm. This device type is currently in **beta** - if you need access, contact
-[support@saucelabs.com](mailto:support@saucelabs.com).
+`provider-caps/android-arm-emulator.json` targets Sauce Labs' newer
+[**Android ARM emulators**](https://docs.saucelabs.com/mobile-apps/android-emulators/#arm-based-android-emulators)
+which run on ARM-based host hardware instead of the standard x86 emulator
+farm. 
 
 ```bash
 maestro-runner \
   --driver appium \
+  --parallel 4 \
   --appium-url "https://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.eu-central-1.saucelabs.com/wd/hub" \
   --caps provider-caps/android-arm-emulator.json \
   test flows/android/
